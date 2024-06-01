@@ -2,7 +2,7 @@ import React from 'react';
 import GalleryItem from '../GalleryItem/GalleryItem';
 import './GalleryList.css'
 
-function GalleryList({ galleryItems, youLoveArt }) {
+function GalleryList({ galleryItems, youLoveArt, deleteArt }) {
   return (
 
     <div data-testid="galleryList" className="gallery-list">
@@ -10,6 +10,7 @@ function GalleryList({ galleryItems, youLoveArt }) {
         <GalleryItem 
         key={item.id} 
         item={item} 
+        deleteArt={() => deleteArt(item.id)}
         youLoveArt={() => youLoveArt(item.id)}
         />
       ))}
