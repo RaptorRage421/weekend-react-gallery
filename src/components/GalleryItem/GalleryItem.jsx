@@ -16,7 +16,7 @@ const GalleryItem = ({item, youLoveArt}) => {
           <div className="title">{title}</div>
           <div
             data-testid="toggle"
-            className={`gallery-item ${showDescription ? "show-description" : "show-description"}`}
+            className={`gallery-item ${showDescription ? "show-description" : ""}`}
             onClick={toggleDescription}
           >
             {showDescription ? <p>{description}</p> : <img src={url} alt={title} />}
@@ -26,7 +26,7 @@ const GalleryItem = ({item, youLoveArt}) => {
           Love this Art! 💙
         </button>
         </div>
-        <div className="like-container">
+        <div className="like-counter">
         <div>{likes} People love this!</div>
       </div>
         </div>
