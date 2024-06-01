@@ -1,5 +1,6 @@
 import React from "react"
 import { useState } from "react";
+import './GalleryItem.css'
 
 const GalleryItem = ({item, youLoveArt}) => {
     const { url, title, description, likes } = item
@@ -12,19 +13,19 @@ const GalleryItem = ({item, youLoveArt}) => {
 
     return (
 
-        <div>
+        <div data-testid="galleryItem">
             <div>
                 Title: {title}
             </div>
-            <div className="gallery-item" onClick={toggleDescription}>
+            <div data-testid="toggle" className="gallery-item" onClick={toggleDescription}>
       {showDescription ? (
-        <p>{item.description}</p>
+        <p>{description}</p>
       ) : (
         <img src={url} alt={title} />
       )}
     </div>
             <div>
-                <button onClick={youLoveArt}>Love this Art! 💙</button>
+                <button data-testid="like" onClick={youLoveArt}>Love this Art! 💙</button>
             </div>
             <div>
                 {likes} People love this!

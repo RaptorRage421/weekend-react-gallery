@@ -3,7 +3,7 @@ import GalleryItem from '../GalleryItem/GalleryItem';
 
 function GalleryList({ galleryItems, youLoveArt }) {
   return (
-    <div className="gallery-list">
+    <div data-testid="galleryList" className="gallery-list">
       {galleryItems.map((item) => (
         <GalleryItem 
         key={item.id} 

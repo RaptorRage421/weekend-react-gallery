@@ -36,7 +36,7 @@ const youLoveArt = (id) => {
 
 
     return (
-      <div>
+      <div data-testid="app">
         <header>
           <h1>React Gallery</h1>
         </header>
