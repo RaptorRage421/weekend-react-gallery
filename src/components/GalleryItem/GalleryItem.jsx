@@ -12,28 +12,26 @@ const GalleryItem = ({item, youLoveArt}) => {
     };
 
     return (
-
-        <div data-testid="galleryItem">
-            <div>
-                Title: {title}
-            </div>
-            <div data-testid="toggle" className="gallery-item" onClick={toggleDescription}>
-      {showDescription ? (
-        <p>{description}</p>
-      ) : (
-        <img src={url} alt={title} />
-      )}
-    </div>
-            <div>
-                <button data-testid="like" onClick={youLoveArt}>Love this Art! 💙</button>
-            </div>
-            <div>
-                {likes} People love this!
-            </div>
+        <div className="gallery-item-container" data-testid="galleryItem">
+          <div className="title">{title}</div>
+          <div
+            data-testid="toggle"
+            className={`gallery-item ${showDescription ? "show-description" : "show-description"}`}
+            onClick={toggleDescription}
+          >
+            {showDescription ? <p>{description}</p> : <img src={url} alt={title} />}
+          </div>
+          <div className="like-container">
+        <button className="like-button" data-testid="like" onClick={youLoveArt}>
+          Love this Art! 💙
+        </button>
         </div>
-
-    )
-
-}
+        <div className="like-container">
+        <div>{likes} People love this!</div>
+      </div>
+        </div>
+      );
+    };
+    
 
 export default GalleryItem
