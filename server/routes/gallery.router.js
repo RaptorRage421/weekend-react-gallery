@@ -26,6 +26,38 @@ SELECT * FROM "gallery"
 
 });
 
+
+router.post('/', (req,res) => {
+const queryText = `
+INSERT INTO "gallery"
+("url", "title", "description" )
+VALUES ($1,$2,$3)
+`
+let upload = req.body
+pool.query(queryText, [upload.url, upload.title, upload.description])
+.then(results => {
+  res.sendStatus(201)
+})
+.catch(err => {
+  console.error("error in POST adding new gallery item", err)
+})
+})
+
+
+router.delete('/:id', (req, res) => {
+  const queryText = `
+  DELETE FROM "gallery"
+  WHERE "id" = $1
+  `
+  pool.query(queryText, [req.params.id])
+  .then((results) => {
+    res.sendStatus(200)
+  })
+  .catch((err) => {
+    console.error("Issue with the DELETE", err)
+  })
+})
+
 router.put('/:id', (req,res) => {
   console.log("req.params", req.params)
   const queryText = `
